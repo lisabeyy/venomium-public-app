@@ -16,15 +16,15 @@ import { ChevronDownIcon, MagnifyingGlassIcon } from '@heroicons/react/20/solid'
 import { BrowserRouter as Router, Route, Routes, Navigate, useParams, Link, useLocation } from 'react-router-dom';
 import { initVenomConnect } from '../lib/venom';
 import Image from 'next/image';
-import Logo from '../assets/venomium_3.png';
+import Logo from '../assets/venomium_3.svg';
 import ConnectedIcon from '../assets/connected.svg';
 import VenomConnect from 'venom-connect';
-import ConnectWallet from '../components/connectWallet';
-import SearchAccount from '../components/searchAccount';
+import ConnectWallet from './connectWallet';
+import SearchAccount from './searchAccount';
 import WatchlistService from '../lib/watchlist.api';
 import Wallet from './WalletPage';
 import Watchlist from './WatchlistPage';
-import Footer from '../components/Footer';
+import Footer from './Footer';
 
 const navigation = [
   { name: 'My Wallet', href: '/wallet', icon: HomeIcon, current: true },
@@ -55,7 +55,7 @@ function Layout() {
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const [venomConnect, setVenomConnect] = useState<VenomConnect | undefined>();
   const [currentURL, setCurrentURL] = useState<string>('');
-  const pathname = window.location.pathname
+  const pathname = window.location.pathname;
 
 
   const init = async () => {
@@ -179,8 +179,7 @@ function Layout() {
                   {/* Sidebar component, swap this element with another sidebar if you like */}
                   <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-gray-900 px-6 pb-4 ring-1 ring-white/10">
                     <div className="flex h-16 shrink-0 items-center">
-                      {/* logo venom */}
-                      <Image src={Logo} width={100} height={100} alt="logo " /> <span className='text-white text-bold'>Testnet</span>
+                      <Image src={Logo} width={100} alt="logo " /> <span className='text-white text-bold'>Testnet</span>
                     </div>
                     <nav className="flex flex-1 flex-col">
                       <ul role="list" className="flex flex-1 flex-col gap-y-7">
@@ -248,7 +247,7 @@ function Layout() {
           <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-gray-900 px-6 pb-4">
             <div className="flex h-16 shrink-0 items-center">
               { /* logo venom */}
-              <img src={Logo} width={100} alt="logo " /><span className='text-white text-xs font-bold '>Testnet</span>
+              <Image src={Logo} width={100} alt="logo " /><span className='text-white text-xs font-bold '>Testnet</span>
 
 
             </div>
@@ -342,7 +341,7 @@ function Layout() {
                     <Menu as="div" className="relative">
                       <Menu.Button className="-m-1.5 flex items-center p-1.5">
                         <span className="sr-only">Open user menu</span>
-                        <img src={ConnectedIcon} width={20} alt="logo " />
+                        <Image src={ConnectedIcon} width={20} alt="logo " />
 
 
                         <span className="hidden lg:flex lg:items-center">
